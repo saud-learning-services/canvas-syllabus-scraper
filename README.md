@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://physicaltherapy.med.ubc.ca/files/2012/05/UBC-logo-signature-blue.gif" height=15% width=15%
+</p>
+  
 # Syllabus scraper
 
 #### DO NOT DELETE pdf folder
