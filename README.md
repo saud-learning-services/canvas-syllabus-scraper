@@ -19,9 +19,8 @@ dl_data.csv tells you what files were downloaded for each course.
 
 4. Run the script. It will prompt you for your these things:
    1. Token (Canvas API token)
-   2. Master Subaccount ID, this is the subaccount you want to look for blueprints in.
-   3. Chosen Subaccount ID, this is the subaccount you want to get course information for.
-   4. Canvas term to look into.
+   2. Subaccount to run in
+   3. Term to search through
 
 **Please note this script is rather slow. Due to the risk of taking down the AWS server, all API calls are done on a single thread.**
 **This script will be rewritten soon.**
