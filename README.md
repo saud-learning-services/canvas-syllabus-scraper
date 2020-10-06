@@ -37,7 +37,7 @@ This adapatation was forked from https://github.com/ubccapico/syllabus-scraper w
 
 > ###  Original Authors
 > * **Jeremy Hidjaja** - [JeremyH011](https://github.com/JeremyH011)
-> * **Barish Golland** - [barishgolland] https://github.com/barishgolland
+> * **Barish Golland** - [barishgolland](https://github.com/barishgolland)
 
 
 
