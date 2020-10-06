@@ -8,7 +8,7 @@ authors:
 @author: jeremyh2
 """
 
-from helpers import create_course_df, get_user_inputs, get_syllabus_info, format_course_code
+from helpers import get_user_inputs, get_syllabus_info, format_course_code
 from termcolor import cprint
 from canvasapi import Canvas
 from util import shut_down

@@ -34,8 +34,8 @@ def get_user_inputs():
 
     # prompt user for url and token
     url = "https://ubc.test.instructure.com/"
-    token = getpass.getpass('Please enter your token: ')
-    term = input('Please enter the Canvas term or year (or hit enter for all):')
+    token = input('Please enter your token: ')
+    term = input('Please enter the Canvas term or year (or hit enter for all): ')
     auth_header = {'Authorization': f'Bearer {token}'}
 
     # Canvas object to provide access to Canvas API

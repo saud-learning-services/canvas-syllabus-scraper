@@ -1,26 +1,43 @@
-<p align="center">
-<img src="https://physicaltherapy.med.ubc.ca/files/2012/05/UBC-logo-signature-blue.gif" height=15% width=15%
-</p>
+
   
-# Syllabus scraper
+# Syllabus Scraper
+A project takes an account id as input and attempts to download any for courses in that account. The user can specify 
 
-#### DO NOT DELETE pdf folder
+1. The term or year to filter to (uses "startswith" regex to match). For example, 2020 would include 2020W1-2, 2020W1, 2020W2, 2020S etc. 
+2. Terminal will ask for inputs and confirmations
+3. Errors will be shown when necessary by the interface (also shows skipped courses that do not match term)
+4. A file with the entered term or year will be generated to show the status of each attempted course file
+5. Final files can be found in the folder pdf/ 
 
-The scraper goes through a subaccount (or a CSV called course_IDs.csv) and looks through each course's 'Syllabus' tab and downloads all .pdf files present and renames each of them according to course code and year (into the pdf folder).
+## :warning: Important Caveats
+- This script is slow! It makes at least one request per course (depending on number of links found)
+- We recommend running this script for specific terms or years (not all courses in accounts)
+- The script is set to run in the TEST environment of canvas (url = "https://ubc.test.instructure.com/") which is 2 weeks behind the PROD canvas instance but otherwise a mirror
+> *this is set as url in the functon `get_user_inputs()` in the file src/helpers.py*
 
-dl_data.csv tells you what files were downloaded for each course.
+## To Run
+### First Time
+You will need to create the canvas_syllabi environment. We use conda to manage our projects.
+(This should also work with the sauder_canvas_api environment)
+`$ conda env create -f environment.yml`
 
-## Instructions:
-1. If you do not have Python, install it. If you have no experience with it, I recommend installing it through *https://www.anaconda.com/download/*.
+### Every Time
+1. `$ conda activate canvas_syllabi`
+1. `$ python src/syllabus_downloader.py`
 
-2. Clone this GitHub repository.
 
-3. Install all the dependencies using pip (first time use only). Use the command **pip install -r requirements.txt** through the command shell in the directory of your cloned GitHub repo.
+### Inputs for Required
+1. Canvas API Token
+1. Canvas Account ID
+2. Canvas Term or years
 
-4. Run the script. It will prompt you for your these things:
-   1. Token (Canvas API token)
-   2. Subaccount to run in
-   3. Term to search through
+---
+## Acknowledgement :star2:
+This adapatation was forked from https://github.com/ubccapico/syllabus-scraper where the original authors are:
 
-**Please note this script is rather slow. Due to the risk of taking down the AWS server, all API calls are done on a single thread.**
-**This script will be rewritten soon.**
+> ###  Original Authors
+> * **Jeremy Hidjaja** - [JeremyH011](https://github.com/JeremyH011)
+> * **Barish Golland** - [barishgolland] https://github.com/barishgolland
+
+
+
