@@ -1,4 +1,4 @@
-name: canvas_syllabi
+name: syllabus-scraper
 channels:
   - anaconda
   - conda-forge
@@ -11,7 +11,5 @@ dependencies:
   - pandas
   - pip
   - pip:
-    - canvasapi
-    - beautifulsoup4
-
-prefix: /anaconda3/envs/canvas_syllabi
+      - canvasapi
+      - beautifulsoup4
