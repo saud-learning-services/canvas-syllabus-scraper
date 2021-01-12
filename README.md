@@ -1,7 +1,7 @@
 # Canvas Syllabus Scraper
 
 > - name: canvas-syllabus-scraper
-> - ops-run-with: jupyter
+> - ops-run-with: terminal
 > - python>=3.7
 > - canvasapi>=2.0.0
 > - custom environment: canvas-syllabus-scraper
@@ -41,7 +41,7 @@ You will need to create the canvas-syllabus-scraper environment. We use conda to
 
 1. Canvas API Token
 1. Canvas Account ID
-1. Canvas Term or years
+1. Canvas Term or Year required
 
 ---
 
