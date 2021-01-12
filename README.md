@@ -1,6 +1,6 @@
-# Syllabus Scraper
+# Canvas Syllabus Scraper
 
-A project takes an account id as input and attempts to download any syllabi for courses in that account. The user can specify
+This project takes an account id as input and attempts to download any syllabi for courses in that account. The user can specify
 
 1. The term or year to filter to (uses "startswith" regex to match). For example, 2020 would include 2020W1-2, 2020W1, 2020W2, 2020S etc.
 2. Terminal will ask for inputs and confirmations
@@ -25,7 +25,7 @@ You will need to create the canvas_syllabi environment. We use conda to manage o
 
 ### Every Time
 
-1. `$ conda activate syllabus-scraper`
+1. `$ conda activate canvas-syllabus-scraper`
 1. `$ python src/syllabus_downloader.py`
 
 ### Inputs for Required
