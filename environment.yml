@@ -11,5 +11,5 @@ dependencies:
   - pandas
   - pip
   - pip:
-      - canvasapi>=2.0.0
-      - beautifulsoup4
+    - canvasapi>=2.0.0
+    - beautifulsoup4
