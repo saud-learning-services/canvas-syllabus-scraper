@@ -1,5 +1,11 @@
 # Canvas Syllabus Scraper
 
+> - name: canvas-syllabus-scraper
+> - run-with: terminal
+> - python>=3.7
+> - canvasapi>=2.0.0
+> - custom environment: canvas-syllabus-scraper
+
 This project takes an account id as input and attempts to download any syllabi for courses in that account. The user can specify
 
 1. The term or year to filter to (uses "startswith" regex to match). For example, 2020 would include 2020W1-2, 2020W1, 2020W2, 2020S etc.
@@ -17,22 +23,23 @@ This project takes an account id as input and attempts to download any syllabi f
 
 ## To Run
 
-### First Time
+You will need to create the canvas-syllabus-scraper environment. We use [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to manage our projects. Part of Learning Services and need any other help? Checkout our [docs]!(https://github.com/saud-learning-services/instructions-and-other-templates)
 
-You will need to create the canvas_syllabi environment. We use conda to manage our projects.
-(This should also work with the sauder_canvas_api environment)
-`$ conda env create -f environment.yml`
+### First Time
+1. Clone **canvas-get-group-csv** repository
+1. Install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) (Python 3.7 version)
+1. Import environment: `$ conda env create -f environment.yml`
 
 ### Every Time
 
 1. `$ conda activate canvas-syllabus-scraper`
 1. `$ python src/syllabus_downloader.py`
 
-### Inputs for Required
+### Inputs Required
 
 1. Canvas API Token
 1. Canvas Account ID
-1. Canvas Term or years
+1. Canvas Term or Year required
 
 ---
 
