@@ -1,7 +1,7 @@
+.gitignore
 *.csv
 pdf/*
 *.ipynb_checkpoints
 *.ipynb
-src/__pycache__/helpers.cpython-38.pyc
-.gitignore
-src/__pycache__/util.cpython-38.pyc
+*.pyc
+*.DS_Store
