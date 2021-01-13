@@ -6,6 +6,8 @@
 > - canvasapi>=2.0.0
 > - custom environment: canvas-syllabus-scraper
 
+## Summary
+
 This project takes an account id as input and attempts to download any syllabi for courses in that account. The user can specify
 
 1. The term or year to filter to (uses "startswith" regex to match). For example, 2020 would include 2020W1-2, 2020W1, 2020W2, 2020S etc.
@@ -21,25 +23,26 @@ This project takes an account id as input and attempts to download any syllabi f
 - The script is set to run in the TEST environment of canvas (url = "https://ubc.test.instructure.com/") which is 2 weeks behind the PROD canvas instance but otherwise a mirror
   > _this is set as url in the functon `get_user_inputs()` in the file src/helpers.py_
 
+### Inputs Required
+
+1. Canvas API Token
+1. Canvas Account ID
+1. Canvas Term or Year required
+
 ## To Run
 
-You will need to create the canvas-syllabus-scraper environment. We use [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to manage our projects. Part of Learning Services and need any other help? Checkout our [docs]!(https://github.com/saud-learning-services/instructions-and-other-templates)
+You will need to create the canvas-syllabus-scraper environment. We use [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to manage our projects. Part of Learning Services and need any other help? Checkout our [docs](https://github.com/saud-learning-services/instructions-and-other-templates)!
 
 ### First Time
 1. Clone **canvas-get-group-csv** repository
 1. Install [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) (Python 3.7 version)
 1. Import environment: `$ conda env create -f environment.yml`
 
-### Every Time
+### Every Time (Terminal)
+1. Run
+   1. `$ conda activate canvas-syllabus-scraper`
+   2. `$ python src/syllabus_downloader.py`
 
-1. `$ conda activate canvas-syllabus-scraper`
-1. `$ python src/syllabus_downloader.py`
-
-### Inputs Required
-
-1. Canvas API Token
-1. Canvas Account ID
-1. Canvas Term or Year required
 
 ---
 
