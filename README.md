@@ -23,9 +23,7 @@ This project takes an account id as input and attempts to download any syllabi f
 
 ## To Run
 
-### First Time
-
-You will need to create the canvas-syllabus-scraper environment. We use conda to manage our projects.
+You will need to create the canvas-syllabus-scraper environment. We use [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) to manage our projects. Part of Learning Services and need any other help? Checkout our ([docs](https://github.com/saud-learning-services/instructions-and-other-templates)
 
 ### First Time
 1. Clone **canvas-get-group-csv** repository
