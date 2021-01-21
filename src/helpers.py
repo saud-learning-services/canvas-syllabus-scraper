@@ -137,23 +137,40 @@ def get_syllabus_info(course, canvas, auth_header, year, name):
 
     return(msg)
     
+def _create_api_download(href):
 
-def _download_file(link, canvas, file_name, auth_header):    
+    match_ex = re.compile('(.*)/courses/([0-9]*)/files/([0-9]*)')
+    match_response = re.match(match_ex, href)
+    if match_response:
+        url = match_response[1]
+        course_id = match_response[2]
+        file_id = match_response[3]
+
+        file_api_url = f'{url}/api/v1/courses/{course_id}/files/{file_id}'
+        return(file_api_url)
+
+def _download_file(link, canvas, file_name, auth_header): 
+
+    #first try endpoint
+    # # if that doesn't work, use old method   
     file_endpoint = link.get('data-api-endpoint')
     msg = ''
     success = 0
 
     if file_endpoint == None:
-        msg = (f'no downloadable files')
-
-        
-    else: 
+        msg = f'no data-api-endpoint found, tried to create one'
+        print(msg)
+        #try to get using href
+        href = link.get('href')
+        file_endpoint = _create_api_download(href)
+    
+    try:
         file = requests.get(file_endpoint, headers=auth_header)
         file_info = file.json()
-        
         if file_info==None:
             msg = f'no file info found'
-
+            print(msg)
+        
         else:
             try:
                 file_id = file_info['id']
@@ -163,8 +180,11 @@ def _download_file(link, canvas, file_name, auth_header):
                 canvas.get_file(file_id).download(file_save)
                 msg = f'{file_save}'
                 success = 1
+
             except Exception as e:
                 msg = f'error in file download: {e}'
- 
+
+    except Exception as e:
+        cprint(f'Error getting file info\n{e}\n...', 'red')
     
     return(msg, success)
