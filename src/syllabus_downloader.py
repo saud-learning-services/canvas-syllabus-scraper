@@ -73,15 +73,15 @@ def main():
                     this_course = get_course_info(c, canvas, auth_header)
                     course_data.append(this_course)
                 except Exception as e:
-                    cprint(f'{count}: Unknown Error - {c.name}', 'red')
+                    cprint(f'{count}: Error getting course info - {c.name}', 'red')
         
         except Exception as e:
-            cprint(f'{e} ...', 'red')
+            cprint(f'Unresolved error\n:{e} ...\n', 'red')
     try:
         df = pd.DataFrame(course_data)
         df.to_csv(f"{term}-syllabus_download-tracking.csv")
     except Exception as e:
-            cprint(f'Error in csv creation {e} ...')
+            cprint(f'Unknown error in csv creation\n{e}\n...')
 
 if __name__ == "__main__":
     # execute only if run as a script
