@@ -25,7 +25,7 @@ import urllib.request
 # for printing neatly formatted objects (used for debugging)
 pp = pprint.PrettyPrinter(indent=4)
 
-def get_course_info(c, term, count):
+def get_course_info(c, term, count, canvas, auth_header):
         try:
             if c.term['name'].startswith(term):
                 cprint(f"{count}: getting data for {c.name}", 'green')
@@ -43,7 +43,7 @@ def get_course_info(c, term, count):
                 return(this_course)
             
         except Exception as e:
-            cprint(f'{count}: Unknown error for course {c.name}', 'red')
+            cprint(f'{count}: {e} - Unknown error for course {c.name}', 'red')
 
 
 def main():
@@ -56,13 +56,15 @@ def main():
     course_data = []
 
 
-    for count, c in enumerate(courses, 1):
+    for count, c in enumerate(courses[17:22], 1):
+        #TODO seperate the count from the function
+        #TODO add overall counter i.e .1/X
         try:
-            this_course = get_course_info(c, term, count)
+            this_course = get_course_info(c, term, count, canvas, auth_header)
             course_data.append(this_course)
 
         except Exception as e:
-            cprint(f'{count}: Unknown error for course {c.name}', 'red')
+            cprint(f'{count}: {e} loop error - {c.name}', 'red')
     
     df = pd.DataFrame(course_data)
     df.to_csv(f"{term}-syllabus_download-tracking.csv")
@@ -70,4 +72,3 @@ def main():
 if __name__ == "__main__":
     # execute only if run as a script
     main()
-    #test()
