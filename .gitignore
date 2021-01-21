@@ -5,3 +5,5 @@ pdf/*
 *.ipynb
 *.pyc
 *.DS_Store
+.env
+testing.py

@@ -138,7 +138,10 @@ def get_syllabus_info(course, canvas, auth_header, year, name):
     return(msg)
     
 
-def _download_file(link, canvas, file_name, auth_header):    
+def _download_file(link, canvas, file_name, auth_header): 
+
+    #first try endpoint
+    # # if that doesn't work, use old method   
     file_endpoint = link.get('data-api-endpoint')
     msg = ''
     success = 0
