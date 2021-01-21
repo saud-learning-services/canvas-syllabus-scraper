@@ -25,17 +25,7 @@ import urllib.request
 # for printing neatly formatted objects (used for debugging)
 pp = pprint.PrettyPrinter(indent=4)
 
-def main():
-    # get user inputs
-    canvas, account, auth_header, term = get_user_inputs()
-
-    # get list of courses
-    courses = account.get_courses(include=["term", "syllabus_body"])
-    #courses = courses[0:10]
-    course_data = []
-
-
-    for count, c in enumerate(courses, 1):
+def get_course_info(c, term, count):
         try:
             if c.term['name'].startswith(term):
                 cprint(f"{count}: getting data for {c.name}", 'green')
@@ -50,9 +40,26 @@ def main():
                 course_name_formatted = this_course['course_name_formatted']
                 msgs = get_syllabus_info(c, canvas, auth_header, this_course['term'], course_name_formatted)
                 this_course['extract_details'] = msgs
-                course_data.append(this_course)
-            else:
-                print(f"{count}: skipping {c.name} ({c.term['name']})")
+                return(this_course)
+            
+        except Exception as e:
+            cprint(f'{count}: Unknown error for course {c.name}', 'red')
+
+
+def main():
+    # get user inputs
+    canvas, account, auth_header, term = get_user_inputs()
+
+    # get list of courses
+    courses = account.get_courses(include=["term", "syllabus_body"])
+    #courses = courses[0:10]
+    course_data = []
+
+
+    for count, c in enumerate(courses, 1):
+        try:
+            this_course = get_course_info(c, term, count)
+            course_data.append(this_course)
 
         except Exception as e:
             cprint(f'{count}: Unknown error for course {c.name}', 'red')
