@@ -5,7 +5,13 @@ This file is responsible for everything.
 
 authors:
 @alisonmyers
-@author: jeremyh2
+@markoprodanovic
+
+This adapatation was forked from https://github.com/ubccapico/syllabus-scraper where the original authors are:
+
+Original Authors
+Jeremy Hidjaja - @JeremyH011
+Barish Golland - @barishgolland
 """
 
 from helpers import get_user_inputs, get_syllabus_info, format_course_code
