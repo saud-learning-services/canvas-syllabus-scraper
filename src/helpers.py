@@ -115,6 +115,7 @@ def get_syllabus_info(course, canvas, auth_header, year, name):
         
         # find anything of class=instructure_file_link
         links = soup.findAll("a", class_="instructure_file_link")
+        print(links)
         n_links = len(links)
         
         # if no links, then no links found
@@ -137,6 +138,17 @@ def get_syllabus_info(course, canvas, auth_header, year, name):
 
     return(msg)
     
+def _create_api_download(href):
+
+    match_ex = re.compile('(.*)/courses/([0-9]*)/files/([0-9]*)')
+    match_response = re.match(match_ex, href)
+    if match_response:
+        url = match_response[1]
+        course_id = match_response[2]
+        file_id = match_response[3]
+
+        file_api_url = f'{url}/api/v1/courses/{course_id}/files/{file_id}'
+        return(file_api_url)
 
 def _download_file(link, canvas, file_name, auth_header): 
 
@@ -147,10 +159,13 @@ def _download_file(link, canvas, file_name, auth_header):
     success = 0
 
     if file_endpoint == None:
-        msg = (f'no downloadable files')
-
+        msg = (f'no data-api-endpoint found, tried to create one')
+        #try to get using href
+        href = link.get('href')
+        file_endpoint = _create_api_download(href)
         
-    else: 
+        
+    #else: 
         file = requests.get(file_endpoint, headers=auth_header)
         file_info = file.json()
         

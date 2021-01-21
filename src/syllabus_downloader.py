@@ -40,6 +40,7 @@ def get_course_info(c, term, count, canvas, auth_header):
                 course_name_formatted = this_course['course_name_formatted']
                 msgs = get_syllabus_info(c, canvas, auth_header, this_course['term'], course_name_formatted)
                 this_course['extract_details'] = msgs
+                print(msgs)
                 return(this_course)
             
         except Exception as e:
@@ -55,11 +56,13 @@ def main():
     #courses = courses[0:10]
     course_data = []
 
-
-    for count, c in enumerate(courses[17:22], 1):
+    total = len(courses)
+    
+    for count, c in enumerate(courses, 1):
         #TODO seperate the count from the function
         #TODO add overall counter i.e .1/X
         try:
+            
             this_course = get_course_info(c, term, count, canvas, auth_header)
             course_data.append(this_course)
 
