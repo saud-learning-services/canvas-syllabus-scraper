@@ -177,6 +177,12 @@ def _download_file(link, canvas, file_name, auth_header):
                 #id ,mime_class, content-type, url, display_name
                 file_type = file_info['mime_class']
                 file_save = f'pdf/{file_name}.{file_type}'
+
+                # check to see if pdf/ directory already exists, if not, makes one
+                if not os.path.isdir('pdf'):
+                    os.mkdir('pdf')
+
+                # download the canvas file (specified by id) to location: pdf/...
                 canvas.get_file(file_id).download(file_save)
                 msg = f'{file_save}'
                 success = 1
