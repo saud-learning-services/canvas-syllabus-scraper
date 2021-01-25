@@ -1,9 +1,11 @@
 .gitignore
 *.csv
-pdf/*
 *.ipynb_checkpoints
 *.ipynb
 *.pyc
 *.DS_Store
 .env
 testing.py
+
+pdf/*
+!pdf/.gitkeep
