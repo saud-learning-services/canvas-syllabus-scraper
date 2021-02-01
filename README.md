@@ -51,6 +51,9 @@ You will need to create the canvas-syllabus-scraper environment. We use [conda](
 This adapatation was forked from https://github.com/ubccapico/syllabus-scraper where the original authors are:
 
 > ### Original Authors
->
 > - **Jeremy Hidjaja** - [JeremyH011](https://github.com/JeremyH011)
 > - **Barish Golland** - [barishgolland](https://github.com/barishgolland)
+
+### Additional Contributers
+- Marko Prodanovic - [markoprodanovic](https://github.com/markoprodanovic)
+- Alison Myers - [alisonmyers](https://github.com/alisonmyers)
