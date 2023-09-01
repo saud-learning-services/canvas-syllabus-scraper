@@ -33,7 +33,7 @@ def get_user_inputs():
     """
 
     # prompt user for url and token
-    url = "https://ubc.test.instructure.com/"
+    url = "https://ubc.instructure.com/"
     # url = "https://canvas.ubc.ca/"
     token = input('Please enter your token: ')
     term = input('Please enter the Canvas term or year (or hit enter for all): ')

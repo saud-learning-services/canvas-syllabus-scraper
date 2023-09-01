@@ -20,7 +20,7 @@ This project takes an account id as input and attempts to download any syllabi f
 
 - This script is slow! It makes at least one request per course (depending on number of links found)
 - We recommend running this script for specific terms or years (not all courses in accounts)
-- The script is set to run in the TEST environment of canvas (url = "https://ubc.test.instructure.com/") which is 2 weeks behind the PROD canvas instance but otherwise a mirror
+- The script is set to run in the PROD environment of canvas (url = "https://ubc.instructure.com/")
   > _this is set as url in the functon `get_user_inputs()` in the file src/helpers.py_
 
 ### Inputs Required
@@ -57,3 +57,4 @@ This adapatation was forked from https://github.com/ubccapico/syllabus-scraper w
 ### Additional Contributers
 - Marko Prodanovic - [markoprodanovic](https://github.com/markoprodanovic)
 - Alison Myers - [alisonmyers](https://github.com/alisonmyers)
+- Peter Lukasik - [peterlukasik](https://github.com/peterlukasik)
